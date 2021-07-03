@@ -1,13 +1,14 @@
 from uuid import UUID
 from datetime import date
+import uuid
 from pydantic import BaseModel
 
-class Customer(BaseModel):
+class CustomerSchema(BaseModel):
     id: UUID
     firstName: str
     lastName: str
     dateOfBirth: date
-class Account(BaseModel):
+class AccountSchema(BaseModel):
     id: UUID
     accountNumber: str
     balance: float

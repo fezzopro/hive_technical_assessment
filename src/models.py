@@ -1,23 +1,22 @@
+from datetime import datetime
 from sqlalchemy import Integer, String, Date, DateTime, Float, Column
-#from sqlalchemy.sql.schema import Column
-#from sqlalchemy.sql.sqltypes import DateTime
-#from sqlalchemy.types import Float
 from sqlalchemy.ext.declarative import declarative_base
-# from .config import Base
+from sqlalchemy.sql.elements import Null
+from sqlalchemy.sql.expression import null
 
 Base = declarative_base()
 
-class Customer(Base):
+class CustomerModel(Base):
     __tablename__ = 'Customer'
 
     id = Column(String, primary_key=True)
     firstName = Column(String, nullable=False)
     lastName = Column(String, nullable=False)
     dateOfBirth = Column(Date, nullable=False)
-    creditedAt = Column(DateTime, nullable=False)
-    updatedAt = Column(DateTime, nullable=False)
+    createdAt = Column(DateTime, nullable=False, default=DateTime)
+    updatedAt = Column(DateTime, nullable=True, default=DateTime)
 
-class Account(Base):
+class AccountModel(Base):
     __tablename__ = 'Account'
 
     id = Column(String, primary_key=True)
@@ -26,7 +25,7 @@ class Account(Base):
     creditedAt = Column(DateTime, nullable=False)
     updatedAt = Column(DateTime, nullable=False)
 
-class Address(Base):
+class AddressModel(Base):
     __tablename__ = 'Address'
 
     id = Column(String, primary_key=True)

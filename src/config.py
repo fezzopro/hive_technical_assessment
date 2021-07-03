@@ -1,14 +1,14 @@
+# from sqlalchemy.sql.schema import MetaData
 from src.models import Base
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import session, sessionmaker
 
-engine = create_engine('postgresql+psycopg2://postgres:AdminDB@localhost:5432/hiveOnline', echo=True)
+engine = create_engine('postgresql+psycopg2://postgres:postgres@localhost:5432/hiveOnline', echo=True)
 
-print("DB:",engine)
 
 localSession = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+session = localSession()
 
-# Base = declarative_base()
 Base.metadata.create_all(engine)
 
 def get_database():

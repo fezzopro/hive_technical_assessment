@@ -3,12 +3,14 @@ from fastapi import FastAPI
 from starlette.requests import Request
 
 from pydantic import BaseModel
-from src.db import get_database
+from src.config import get_database
 from sqlalchemy.orm import Session
 from src.schemas import Customer, Account
 
 
 app = FastAPI()
+
+print("DB: ",get_database())
 
 @app.post("/create_customer")
 def createCustomer(customer: Customer):

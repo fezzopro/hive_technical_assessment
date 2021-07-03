@@ -2,8 +2,10 @@ from sqlalchemy import Integer, String, Date, DateTime, Float, Column
 #from sqlalchemy.sql.schema import Column
 #from sqlalchemy.sql.sqltypes import DateTime
 #from sqlalchemy.types import Float
-from .db import Base
+from sqlalchemy.ext.declarative import declarative_base
+# from .config import Base
 
+Base = declarative_base()
 
 class Customer(Base):
     __tablename__ = 'Customer'

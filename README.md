@@ -25,6 +25,6 @@ Run the database migration:
 `alembic upgrade head`
 
 To use The endpoints follow the links on the swagger documentation provided by the first route:  
-`~`
+`4look ata documentation links`
 
 

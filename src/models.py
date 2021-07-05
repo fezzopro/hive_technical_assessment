@@ -1,8 +1,5 @@
-from datetime import datetime
-from sqlalchemy import Integer, String, Date, DateTime, Float, Column
+from sqlalchemy import String, Date, DateTime, Float, Column
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.sql.elements import Null
-from sqlalchemy.sql.expression import null
 
 Base = declarative_base()
 
@@ -22,7 +19,7 @@ class AccountModel(Base):
     id = Column(String, primary_key=True)
     accountNumber = Column(String, nullable=False)
     balance = Column(Float, nullable=False)
-    creditedAt = Column(DateTime, nullable=False)
+    createdAt = Column(DateTime, nullable=False)
     updatedAt = Column(DateTime, nullable=False)
 
 class AddressModel(Base):
